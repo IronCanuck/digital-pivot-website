@@ -9,7 +9,6 @@ const features = [
   'Secure hosting included',
   'Unlimited content update requests',
   'Dedicated support team',
-  '30-day money-back guarantee',
   'Google Analytics setup',
   'SSL certificate included',
   'Contact forms & lead capture',
