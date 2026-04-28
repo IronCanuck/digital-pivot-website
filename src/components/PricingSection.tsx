@@ -113,10 +113,6 @@ export default function PricingSection() {
 
               <div className="mt-8 pt-6 border-t border-gray-100 flex items-center gap-3">
                 <ShieldCheck className="w-8 h-8 text-gray-400 shrink-0" />
-                <div>
-                  <p className="font-semibold text-gray-900 text-sm">30-Day Money-Back Guarantee</p>
-                  <p className="text-gray-500 text-xs">Not happy within the first 30 days? We'll refund you completely.</p>
-                </div>
               </div>
             </div>
           </div>
