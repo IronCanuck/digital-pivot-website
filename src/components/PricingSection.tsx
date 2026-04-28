@@ -55,14 +55,14 @@ export default function PricingSection() {
 
               <div className="flex items-end gap-2 mb-1">
                 <span className="text-sm font-semibold text-gray-500 mb-2">CAD</span>
-                <span className="font-display text-6xl font-bold text-gray-900">$300</span>
+                <span className="font-display text-6xl font-bold text-gray-900">$250</span>
                 <span className="text-gray-500 text-sm mb-3">/month</span>
               </div>
               <p className="text-sm text-gray-400 mb-1">24-month contract · Billed monthly</p>
-              <p className="text-xs text-gray-400 mb-8">+ GST. Total commitment $7,200 CAD + GST.</p>
+              <p className="text-xs text-gray-400 mb-8">+ GST. Total commitment $6,000 CAD + GST.</p>
 
               <button
-                onClick={() => openModal('Monthly Plan — $300/month')}
+                onClick={() => openModal('Monthly Plan — $250/month')}
                 className="block w-full text-center py-4 rounded-xl bg-gradient-brand text-white font-bold text-base hover:opacity-90 transition-opacity shadow-md mb-8"
               >
                 Start Your Website
@@ -79,10 +79,6 @@ export default function PricingSection() {
 
               <div className="mt-8 pt-6 border-t border-gray-100 flex items-center gap-3">
                 <ShieldCheck className="w-8 h-8 text-teal-500 shrink-0" />
-                <div>
-                  <p className="font-semibold text-gray-900 text-sm">30-Day Money-Back Guarantee</p>
-                  <p className="text-gray-500 text-xs">Not happy within the first 30 days? We'll refund you completely.</p>
-                </div>
               </div>
             </div>
           </div>
@@ -95,10 +91,10 @@ export default function PricingSection() {
 
               <div className="flex items-end gap-2 mb-1">
                 <span className="text-sm font-semibold text-gray-500 mb-2">CAD</span>
-                <span className="font-display text-6xl font-bold text-gray-900">$5,600</span>
+                <span className="font-display text-6xl font-bold text-gray-900">$4,800</span>
               </div>
               <p className="text-sm text-gray-400 mb-1">Single payment · No monthly fees · No contract</p>
-              <p className="text-xs text-gray-400 mb-8">+ GST. One-time payment of $5,600 CAD + GST.</p>
+              <p className="text-xs text-gray-400 mb-8">+ GST. One-time payment of $4,800 CAD + GST.</p>
 
               <button
                 onClick={() => openModal('One-Time Payment — $5,600')}
