@@ -36,10 +36,10 @@ export default function ContactSection() {
           {/* Left */}
           <div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Ready to Grow Your Business Online?
+              Apply to the Waitlist
             </h2>
             <p className="text-gray-500 text-base leading-relaxed mb-8">
-              Fill out the form and we'll be in touch within one business day. No sales pressure — just a friendly conversation about how we can help.
+              We only take on <span className="font-semibold text-gray-700">4 new projects per month</span> to make sure every client gets our full attention. Fill out the form below and we'll be in touch within one business day to confirm your spot — no sales pressure, just a friendly conversation about how we can help.
             </p>
 
             <div className="space-y-5">
@@ -68,8 +68,8 @@ export default function ContactSection() {
                 <div className="w-16 h-16 rounded-full bg-teal-50 flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-8 h-8 text-teal-500" />
                 </div>
-                <h3 className="font-display font-bold text-gray-900 text-xl mb-2">Message Sent!</h3>
-                <p className="text-gray-500 text-sm">Thanks for reaching out. We'll be in touch within one business day.</p>
+                <h3 className="font-display font-bold text-gray-900 text-xl mb-2">You're on the Waitlist!</h3>
+                <p className="text-gray-500 text-sm">Thanks for applying. We'll be in touch within one business day to confirm your spot.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
@@ -136,7 +136,7 @@ export default function ContactSection() {
                 >
                   {loading ? 'Sending...' : (
                     <>
-                      Send Message <Send className="w-4 h-4" />
+                      Apply to the Waitlist <Send className="w-4 h-4" />
                     </>
                   )}
                 </button>

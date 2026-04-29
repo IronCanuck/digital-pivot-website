@@ -24,7 +24,7 @@ export default function HeroSection() {
           <div className="inline-flex items-center gap-2 bg-teal-50 border border-teal-100 rounded-full px-4 py-1.5 mb-8">
             <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
             <span className="text-teal-700 text-xs font-medium tracking-wide uppercase">
-              Now Accepting Canadian Clients
+              Limited to 4 New Projects per Month
             </span>
           </div>
 
@@ -36,7 +36,7 @@ export default function HeroSection() {
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl text-gray-500 leading-relaxed mb-8 max-w-2xl mx-auto">
-            We design, build, and fully manage your website — so you can focus on running your business while we handle everything online.
+            We design, build, and fully manage your website — so you can focus on running your business while we handle everything online. To protect quality, we only take on <span className="font-semibold text-gray-700">4 new projects per month</span>.
           </p>
 
           {/* Highlights */}
@@ -55,7 +55,7 @@ export default function HeroSection() {
               href="#contact"
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-brand text-white font-semibold text-base shadow-lg hover:opacity-90 transition-all hover:shadow-teal-500/30 hover:shadow-xl"
             >
-              Get Started Today
+              Apply to the Waitlist
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a

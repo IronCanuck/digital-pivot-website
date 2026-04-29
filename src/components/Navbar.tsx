@@ -61,7 +61,7 @@ export default function Navbar() {
               href="/#contact"
               className="px-5 py-2 rounded-full bg-gradient-brand text-white text-sm font-semibold hover:opacity-90 transition-opacity shadow-md"
             >
-              Get Started
+              Apply to Waitlist
             </a>
           </div>
 
@@ -96,7 +96,7 @@ export default function Navbar() {
             href="/#contact"
             className="mt-2 text-center px-5 py-2.5 rounded-full bg-gradient-brand text-white text-sm font-semibold"
           >
-            Get Started
+            Apply to Waitlist
           </a>
         </div>
       </div>

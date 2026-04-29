@@ -27,11 +27,17 @@ export default function PricingSection() {
     <section id="pricing" className="py-24 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 bg-teal-50 border border-teal-100 rounded-full px-4 py-1.5 mb-5">
+            <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+            <span className="text-teal-700 text-xs font-medium tracking-wide uppercase">
+              Only 4 Projects Accepted per Month
+            </span>
+          </div>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Simple, Honest Pricing
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-base">
-            Two options to get your business online. Same great result, different payment structure.
+            Two options to get your business online. Same great result, different payment structure. Spots are limited — apply to the waitlist below.
           </p>
         </div>
 
@@ -64,7 +70,7 @@ export default function PricingSection() {
                 onClick={() => openModal('Monthly Plan — $250/month')}
                 className="block w-full text-center py-4 rounded-xl bg-gradient-brand text-white font-bold text-base hover:opacity-90 transition-opacity shadow-md mb-8"
               >
-                Start Your Website
+                Apply to the Waitlist
               </button>
 
               <ul className="space-y-3">
@@ -99,7 +105,7 @@ export default function PricingSection() {
                 onClick={() => openModal('One-Time Payment — $5,600')}
                 className="block w-full text-center py-4 rounded-xl border-2 border-teal-400 text-teal-600 font-bold text-base hover:bg-teal-50 transition-colors mb-8"
               >
-                Get Started
+                Apply to the Waitlist
               </button>
 
               <ul className="space-y-3">
