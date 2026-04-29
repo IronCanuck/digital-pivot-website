@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
-import { Zap, LayoutDashboard, FileText, Briefcase, Star, HelpCircle, SquarePen as PenSquare, Image, Inbox, Settings, LogOut, Menu, X, ChevronRight, FormInput, ClipboardList } from 'lucide-react';
+import { Zap, LayoutDashboard, FileText, Briefcase, Star, HelpCircle, SquarePen as PenSquare, Image, Inbox, Settings, LogOut, Menu, X, ChevronRight, FormInput, ClipboardList, Users } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 const navItems = [
@@ -12,6 +12,7 @@ const navItems = [
   { to: '/admin/blog', label: 'Blog Posts', icon: PenSquare },
   { to: '/admin/media', label: 'Media Logos', icon: Image },
   { to: '/admin/contacts', label: 'Contact Inbox', icon: Inbox },
+  { to: '/admin/waitlist', label: 'Waitlist', icon: Users },
   { to: '/admin/forms', label: 'Form Builder', icon: FormInput },
   { to: '/admin/form-submissions', label: 'Form Submissions', icon: ClipboardList },
   { to: '/admin/settings', label: 'Settings', icon: Settings },

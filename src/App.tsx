@@ -14,6 +14,7 @@ import AdminFAQ from './admin/AdminFAQ';
 import AdminBlog from './admin/AdminBlog';
 import AdminMedia from './admin/AdminMedia';
 import AdminContacts from './admin/AdminContacts';
+import AdminWaitlist from './admin/AdminWaitlist';
 import AdminForms from './admin/AdminForms';
 import AdminFormSubmissions from './admin/AdminFormSubmissions';
 import AdminSettings from './admin/AdminSettings';
@@ -69,6 +70,7 @@ export default function App() {
           <Route path="blog" element={<AdminBlog />} />
           <Route path="media" element={<AdminMedia />} />
           <Route path="contacts" element={<AdminContacts />} />
+          <Route path="waitlist" element={<AdminWaitlist />} />
           <Route path="forms" element={<AdminForms />} />
           <Route path="form-submissions" element={<AdminFormSubmissions />} />
           <Route path="settings" element={<AdminSettings />} />

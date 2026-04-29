@@ -104,3 +104,21 @@ export interface FormSubmission {
   data: Record<string, string>;
   created_at: string;
 }
+
+export interface WaitlistApplication {
+  id: string;
+  name: string;
+  email: string;
+  phone: string | null;
+  business_name: string;
+  business_type: string;
+  existing_url: string | null;
+  project_goals: string;
+  selected_plan: string | null;
+  budget_range: string | null;
+  timeline: string | null;
+  attachment_url: string | null;
+  attachment_name: string | null;
+  status: string;
+  created_at: string;
+}

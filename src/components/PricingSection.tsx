@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check, ShieldCheck } from 'lucide-react';
+import { Check, ShieldCheck, Sparkles } from 'lucide-react';
 import GetStartedModal from './GetStartedModal';
 
 const features = [
@@ -14,6 +14,18 @@ const features = [
   'Contact forms & lead capture',
 ];
 
+const premiumFeatures = [
+  'Everything in the website plans, plus:',
+  'Custom-built community platform',
+  'Member sign-up, profiles & roles',
+  'Discussion forums & private groups',
+  'Direct messaging between members',
+  'Events, announcements & notifications',
+  'Admin moderation & analytics dashboard',
+  'Onboarding & member migration support',
+  'Priority hosting & ongoing platform updates',
+];
+
 export default function PricingSection() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState('');
@@ -25,23 +37,23 @@ export default function PricingSection() {
 
   return (
     <section id="pricing" className="py-24 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 bg-teal-50 border border-teal-100 rounded-full px-4 py-1.5 mb-5">
             <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
             <span className="text-teal-700 text-xs font-medium tracking-wide uppercase">
-              Only 4 Projects Accepted per Month
+              Limited Spots — Apply to Reserve Yours
             </span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Simple, Honest Pricing
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto text-base">
-            Two options to get your business online. Same great result, different payment structure. Spots are limited — apply to the waitlist below.
+          <p className="text-gray-500 max-w-2xl mx-auto text-base">
+            Three options to get your business online. Same craftsmanship, different scope and payment structure. Spots are limited — apply to the waitlist below.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
 
           {/* Card 1 — Monthly */}
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
@@ -60,11 +72,15 @@ export default function PricingSection() {
 
               <div className="flex items-end gap-2 mb-1">
                 <span className="text-sm font-semibold text-gray-500 mb-2">CAD</span>
-                <span className="font-display text-6xl font-bold text-gray-900">$250</span>
-                <span className="text-gray-500 text-sm mb-3">/month</span>
+                <span className="font-display text-5xl font-bold text-gray-900">$250</span>
+                <span className="text-gray-500 text-sm mb-2">/month</span>
               </div>
               <p className="text-sm text-gray-400 mb-1">24-month contract · Billed monthly</p>
-              <p className="text-xs text-gray-400 mb-8">+ GST. Total commitment $6,000 CAD + GST.</p>
+              <p className="text-xs text-gray-400 mb-6">+ GST. Total commitment $6,000 CAD + GST.</p>
+
+              <p className="text-xs font-semibold text-teal-700 bg-teal-50 border border-teal-100 rounded-lg px-3 py-2 mb-6">
+                Live in 1 month · Up to 4 spots per month
+              </p>
 
               <button
                 onClick={() => openModal('Monthly Plan — $250/month')}
@@ -96,13 +112,17 @@ export default function PricingSection() {
 
               <div className="flex items-end gap-2 mb-1">
                 <span className="text-sm font-semibold text-gray-500 mb-2">CAD</span>
-                <span className="font-display text-6xl font-bold text-gray-900">$4,800</span>
+                <span className="font-display text-5xl font-bold text-gray-900">$4,800</span>
               </div>
               <p className="text-sm text-gray-400 mb-1">Single payment · No monthly fees · No contract</p>
-              <p className="text-xs text-gray-400 mb-8">+ GST. One-time payment of $4,800 CAD + GST.</p>
+              <p className="text-xs text-gray-400 mb-6">+ GST. One-time payment of $4,800 CAD + GST.</p>
+
+              <p className="text-xs font-semibold text-teal-700 bg-teal-50 border border-teal-100 rounded-lg px-3 py-2 mb-6">
+                Live in 1 month · Up to 4 spots per month
+              </p>
 
               <button
-                onClick={() => openModal('One-Time Payment — $5,600')}
+                onClick={() => openModal('One-Time Payment — $4,800 CAD')}
                 className="block w-full text-center py-4 rounded-xl border-2 border-teal-400 text-teal-600 font-bold text-base hover:bg-teal-50 transition-colors mb-8"
               >
                 Apply to the Waitlist
@@ -119,6 +139,69 @@ export default function PricingSection() {
 
               <div className="mt-8 pt-6 border-t border-gray-100 flex items-center gap-3">
                 <ShieldCheck className="w-8 h-8 text-gray-400 shrink-0" />
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3 — Premium Community Platform */}
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+            {/* Gradient border wrapper */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500 via-fuchsia-500 to-pink-500 p-px rounded-3xl">
+              <div className="h-full w-full bg-gray-950 rounded-3xl" />
+            </div>
+            <div className="relative p-8 sm:p-10 text-white">
+              <div className="absolute top-6 right-6">
+                <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-3 py-1.5 rounded-full inline-flex items-center gap-1">
+                  <Sparkles className="w-3 h-3" />
+                  Premium
+                </span>
+              </div>
+
+              <h3 className="font-display text-2xl font-bold mb-1">Community Platform</h3>
+              <p className="text-gray-400 text-sm mb-6">Your own branded community — built end-to-end.</p>
+
+              <div className="flex items-end gap-2 mb-1">
+                <span className="text-sm font-semibold text-gray-400 mb-2">CAD</span>
+                <span className="font-display text-5xl font-bold text-white">$15,000</span>
+              </div>
+              <p className="text-sm text-gray-400 mb-1">
+                or <span className="font-semibold text-white">$550/month</span> for 36 months
+              </p>
+              <p className="text-xs text-gray-500 mb-6">
+                + GST. One-time $15,000 CAD or financed $19,800 over 3 years.
+              </p>
+
+              <p className="text-xs font-semibold text-pink-200 bg-white/5 border border-white/10 rounded-lg px-3 py-2 mb-6">
+                Live in 2 months · Only 1 spot per month · No free trials
+              </p>
+
+              <button
+                onClick={() =>
+                  openModal('Community Platform — $15,000 CAD or $550/month × 36')
+                }
+                className="block w-full text-center py-4 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold text-base hover:opacity-90 transition-opacity shadow-lg mb-8"
+              >
+                Apply to the Waitlist
+              </button>
+
+              <ul className="space-y-3">
+                {premiumFeatures.map((f, i) => (
+                  <li key={f} className={`flex items-start gap-3 text-sm ${i === 0 ? 'text-gray-300 italic' : 'text-gray-200'}`}>
+                    {i === 0 ? (
+                      <Sparkles className="w-4 h-4 text-pink-300 mt-0.5 shrink-0" />
+                    ) : (
+                      <Check className="w-4 h-4 text-pink-300 mt-0.5 shrink-0" />
+                    )}
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-3">
+                <ShieldCheck className="w-8 h-8 text-pink-300 shrink-0" />
+                <p className="text-xs text-gray-400">
+                  Includes hosting, ongoing updates and admin training.
+                </p>
               </div>
             </div>
           </div>
