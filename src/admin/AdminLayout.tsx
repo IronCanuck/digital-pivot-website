@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
-import { Zap, LayoutDashboard, FileText, Briefcase, Star, HelpCircle, SquarePen as PenSquare, Image, Inbox, Settings, LogOut, Menu, X, ChevronRight, FormInput, ClipboardList, Users } from 'lucide-react';
+import { Zap, LayoutDashboard, FileText, Briefcase, Star, HelpCircle, SquarePen as PenSquare, Image, Inbox, Settings, LogOut, Menu, X, ChevronRight, FormInput, ClipboardList, Users, Layout, Mail } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 const navItems = [
   { to: '/admin', label: 'Dashboard', icon: LayoutDashboard, end: true },
+  { to: '/admin/pages', label: 'Pages (Builder)', icon: Layout },
   { to: '/admin/content', label: 'Page Content', icon: FileText },
   { to: '/admin/portfolio', label: 'Portfolio', icon: Briefcase },
   { to: '/admin/testimonials', label: 'Testimonials', icon: Star },
@@ -15,6 +16,7 @@ const navItems = [
   { to: '/admin/waitlist', label: 'Waitlist', icon: Users },
   { to: '/admin/forms', label: 'Form Builder', icon: FormInput },
   { to: '/admin/form-submissions', label: 'Form Submissions', icon: ClipboardList },
+  { to: '/admin/invites', label: 'Admin Invites', icon: Mail },
   { to: '/admin/settings', label: 'Settings', icon: Settings },
 ];
 

@@ -6,6 +6,7 @@ import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import CarePlansPage from './pages/CarePlansPage';
 import AdminLogin from './admin/AdminLogin';
+import AdminSignup from './admin/AdminSignup';
 import AdminLayout from './admin/AdminLayout';
 import AdminDashboard from './admin/AdminDashboard';
 import AdminContent from './admin/AdminContent';
@@ -19,6 +20,10 @@ import AdminWaitlist from './admin/AdminWaitlist';
 import AdminForms from './admin/AdminForms';
 import AdminFormSubmissions from './admin/AdminFormSubmissions';
 import AdminSettings from './admin/AdminSettings';
+import AdminPages from './admin/AdminPages';
+import AdminInvites from './admin/AdminInvites';
+import PageEditor from './admin/PageEditor';
+import PageRenderer from './components/PageRenderer';
 
 function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -39,7 +44,15 @@ export default function App() {
           path="/"
           element={
             <PublicLayout>
-              <HomePage />
+              <PageRenderer slug="home" fallback={<HomePage />} />
+            </PublicLayout>
+          }
+        />
+        <Route
+          path="/p/:slug"
+          element={
+            <PublicLayout>
+              <PageRenderer />
             </PublicLayout>
           }
         />
@@ -71,8 +84,11 @@ export default function App() {
 
         {/* Admin */}
         <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/signup" element={<AdminSignup />} />
+        <Route path="/admin/pages/:id/edit" element={<PageEditor />} />
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
+          <Route path="pages" element={<AdminPages />} />
           <Route path="content" element={<AdminContent />} />
           <Route path="portfolio" element={<AdminPortfolio />} />
           <Route path="testimonials" element={<AdminTestimonials />} />
@@ -83,6 +99,7 @@ export default function App() {
           <Route path="waitlist" element={<AdminWaitlist />} />
           <Route path="forms" element={<AdminForms />} />
           <Route path="form-submissions" element={<AdminFormSubmissions />} />
+          <Route path="invites" element={<AdminInvites />} />
           <Route path="settings" element={<AdminSettings />} />
         </Route>
       </Routes>
