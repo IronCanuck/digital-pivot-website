@@ -98,6 +98,9 @@ export default function PricingSection() {
 
               <div className="mt-8 pt-6 border-t border-gray-100 flex items-center gap-3">
                 <ShieldCheck className="w-8 h-8 text-teal-500 shrink-0" />
+                <p className="text-xs text-gray-500">
+                  Includes hosting, unlimited updates and dedicated support for the full 24 months. You own the site at the end.
+                </p>
               </div>
             </div>
           </div>
@@ -137,6 +140,9 @@ export default function PricingSection() {
 
               <div className="mt-8 pt-6 border-t border-gray-100 flex items-center gap-3">
                 <ShieldCheck className="w-8 h-8 text-gray-400 shrink-0" />
+                <p className="text-xs text-gray-500">
+                  Yours outright the day it launches. Optional monthly care plans available after.
+                </p>
               </div>
             </div>
           </div>
