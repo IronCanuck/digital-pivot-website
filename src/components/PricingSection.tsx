@@ -166,13 +166,13 @@ export default function PricingSection() {
 
               <div className="flex items-end gap-2 mb-1">
                 <span className="text-sm font-semibold text-gray-400 mb-2">CAD</span>
-                <span className="font-display text-5xl font-bold text-white">$15,000</span>
+                <span className="font-display text-5xl font-bold text-white">$19,000</span>
               </div>
               <p className="text-sm text-gray-400 mb-1">
-                or <span className="font-semibold text-white">$550/month</span> for 36 months
+                or <span className="font-semibold text-white">$700/month</span> for 36 months
               </p>
               <p className="text-xs text-gray-500 mb-6">
-                + GST. One-time $15,000 CAD or financed $19,800 over 3 years.
+                + GST. One-time $19,000 CAD or financed $25,200 over 3 years.
               </p>
 
               <p className="text-xs font-semibold text-pink-200 bg-white/5 border border-white/10 rounded-lg px-3 py-2 mb-6">
@@ -181,7 +181,7 @@ export default function PricingSection() {
 
               <button
                 onClick={() =>
-                  applyForPlan('Community Platform — $15,000 CAD or $550/month × 36')
+                  applyForPlan('Community Platform — $19,000 CAD or $700/month × 36')
                 }
                 className="block w-full text-center py-4 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold text-base hover:opacity-90 transition-opacity shadow-lg mb-8"
               >
