@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
+import CarePlansPage from './pages/CarePlansPage';
 import AdminLogin from './admin/AdminLogin';
 import AdminLayout from './admin/AdminLayout';
 import AdminDashboard from './admin/AdminDashboard';
@@ -55,6 +56,15 @@ export default function App() {
           element={
             <PublicLayout>
               <BlogPostPage />
+            </PublicLayout>
+          }
+        />
+        {/* Hidden — noindex'd, only shared with existing clients via offboarding email */}
+        <Route
+          path="/care-plans"
+          element={
+            <PublicLayout>
+              <CarePlansPage />
             </PublicLayout>
           }
         />
