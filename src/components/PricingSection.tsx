@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import { Check, ShieldCheck, Sparkles } from 'lucide-react';
-import GetStartedModal from './GetStartedModal';
 
 const features = [
   'Custom-designed, professional website',
@@ -26,14 +24,14 @@ const premiumFeatures = [
   'Priority hosting & ongoing platform updates',
 ];
 
-export default function PricingSection() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState('');
+function applyForPlan(plan: string) {
+  window.dispatchEvent(new CustomEvent('waitlist:select-plan', { detail: { plan } }));
+  const target = document.getElementById('contact');
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  else window.location.hash = '#contact';
+}
 
-  function openModal(plan: string) {
-    setSelectedPlan(plan);
-    setModalOpen(true);
-  }
+export default function PricingSection() {
 
   return (
     <section id="pricing" className="py-24 bg-gray-50">
@@ -83,7 +81,7 @@ export default function PricingSection() {
               </p>
 
               <button
-                onClick={() => openModal('Monthly Plan — $250/month')}
+                onClick={() => applyForPlan('Monthly Plan — $250/month')}
                 className="block w-full text-center py-4 rounded-xl bg-gradient-brand text-white font-bold text-base hover:opacity-90 transition-opacity shadow-md mb-8"
               >
                 Apply to the Waitlist
@@ -122,7 +120,7 @@ export default function PricingSection() {
               </p>
 
               <button
-                onClick={() => openModal('One-Time Payment — $4,800 CAD')}
+                onClick={() => applyForPlan('One-Time Payment — $4,800 CAD')}
                 className="block w-full text-center py-4 rounded-xl border-2 border-teal-400 text-teal-600 font-bold text-base hover:bg-teal-50 transition-colors mb-8"
               >
                 Apply to the Waitlist
@@ -177,7 +175,7 @@ export default function PricingSection() {
 
               <button
                 onClick={() =>
-                  openModal('Community Platform — $15,000 CAD or $550/month × 36')
+                  applyForPlan('Community Platform — $15,000 CAD or $550/month × 36')
                 }
                 className="block w-full text-center py-4 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold text-base hover:opacity-90 transition-opacity shadow-lg mb-8"
               >
@@ -213,12 +211,6 @@ export default function PricingSection() {
           All prices in Canadian dollars. GST will be added at checkout where applicable. By proceeding you agree to our Terms & Conditions.
         </p>
       </div>
-
-      <GetStartedModal
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        plan={selectedPlan}
-      />
     </section>
   );
 }

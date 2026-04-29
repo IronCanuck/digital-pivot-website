@@ -33,6 +33,7 @@ const PLANS = [
   '',
   'Monthly Plan — $250/month',
   'One-Time Payment — $4,800',
+  'Community Platform — $15,000 or $550/month',
   'Not sure yet',
 ];
 
