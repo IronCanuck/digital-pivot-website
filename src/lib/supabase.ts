@@ -105,6 +105,19 @@ export interface FormSubmission {
   created_at: string;
 }
 
+export interface Notification {
+  id: string;
+  type: 'form_submission' | 'contact' | 'waitlist' | string;
+  title: string;
+  message: string;
+  link_url: string;
+  source_table: string;
+  source_id: string | null;
+  metadata: Record<string, unknown>;
+  read_at: string | null;
+  created_at: string;
+}
+
 export interface WaitlistApplication {
   id: string;
   name: string;

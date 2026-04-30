@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
-import { Zap, LayoutDashboard, FileText, Briefcase, Star, HelpCircle, SquarePen as PenSquare, Image, Inbox, Settings, LogOut, Menu, X, ChevronRight, FormInput, ClipboardList, Users, Layout, Mail } from 'lucide-react';
+import { Zap, LayoutDashboard, FileText, Briefcase, Star, HelpCircle, SquarePen as PenSquare, Image, Inbox, Settings, LogOut, Menu, X, ChevronRight, FormInput, ClipboardList, Users, Layout, Mail, Bell } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
-const navItems = [
+const navItems: {
+  to: string;
+  label: string;
+  icon: typeof LayoutDashboard;
+  end?: boolean;
+  badgeKey?: 'unreadNotifications';
+}[] = [
   { to: '/admin', label: 'Dashboard', icon: LayoutDashboard, end: true },
+  { to: '/admin/notifications', label: 'Notifications', icon: Bell, badgeKey: 'unreadNotifications' },
   { to: '/admin/pages', label: 'Pages (Builder)', icon: Layout },
   { to: '/admin/content', label: 'Page Content', icon: FileText },
   { to: '/admin/portfolio', label: 'Portfolio', icon: Briefcase },
@@ -23,6 +30,7 @@ const navItems = [
 export default function AdminLayout() {
   const [user, setUser] = useState<{ email?: string } | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,6 +49,37 @@ export default function AdminLayout() {
 
     return () => subscription.unsubscribe();
   }, [navigate]);
+
+  useEffect(() => {
+    if (!user) return;
+    let cancelled = false;
+    const refresh = async () => {
+      const { count } = await supabase
+        .from('notifications')
+        .select('id', { count: 'exact', head: true })
+        .is('read_at', null);
+      if (!cancelled) setUnreadCount(count ?? 0);
+    };
+    refresh();
+    const channel = supabase
+      .channel('notifications-badge')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'notifications' },
+        refresh,
+      )
+      .subscribe();
+    const interval = setInterval(refresh, 60000);
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+      supabase.removeChannel(channel);
+    };
+  }, [user]);
+
+  const badges: Record<'unreadNotifications', number> = {
+    unreadNotifications: unreadCount,
+  };
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -70,25 +109,39 @@ export default function AdminLayout() {
 
         {/* Nav */}
         <nav className="flex-1 px-3 py-4 overflow-y-auto space-y-0.5">
-          {navItems.map(({ to, label, icon: Icon, end }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={end}
-              onClick={() => setSidebarOpen(false)}
-              className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                  isActive
-                    ? 'bg-gradient-brand text-white shadow-md'
-                    : 'text-gray-400 hover:text-white hover:bg-white/5'
-                }`
-              }
-            >
-              <Icon className="w-4 h-4 shrink-0" />
-              {label}
-              <ChevronRight className="w-3 h-3 ml-auto opacity-30" />
-            </NavLink>
-          ))}
+          {navItems.map(({ to, label, icon: Icon, end, badgeKey }) => {
+            const badgeValue = badgeKey ? badges[badgeKey] : 0;
+            return (
+              <NavLink
+                key={to}
+                to={to}
+                end={end}
+                onClick={() => setSidebarOpen(false)}
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                    isActive
+                      ? 'bg-gradient-brand text-white shadow-md'
+                      : 'text-gray-400 hover:text-white hover:bg-white/5'
+                  }`
+                }
+              >
+                <span className="relative shrink-0">
+                  <Icon className="w-4 h-4" />
+                  {badgeValue > 0 && (
+                    <span className="absolute -top-1.5 -right-1.5 w-2 h-2 rounded-full bg-red-500 ring-2 ring-gray-950" />
+                  )}
+                </span>
+                <span className="flex-1 truncate">{label}</span>
+                {badgeValue > 0 ? (
+                  <span className="ml-auto inline-flex items-center justify-center min-w-[1.25rem] h-5 px-1.5 rounded-full bg-red-500 text-white text-[10px] font-bold">
+                    {badgeValue > 99 ? '99+' : badgeValue}
+                  </span>
+                ) : (
+                  <ChevronRight className="w-3 h-3 ml-auto opacity-30" />
+                )}
+              </NavLink>
+            );
+          })}
         </nav>
 
         {/* User */}
@@ -123,9 +176,12 @@ export default function AdminLayout() {
         <header className="bg-white border-b border-gray-200 px-4 sm:px-6 py-4 flex items-center justify-between lg:hidden">
           <button
             onClick={() => setSidebarOpen(true)}
-            className="p-2 text-gray-500 hover:text-gray-700 rounded-lg hover:bg-gray-100"
+            className="relative p-2 text-gray-500 hover:text-gray-700 rounded-lg hover:bg-gray-100"
           >
             {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {unreadCount > 0 && (
+              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 ring-2 ring-white" />
+            )}
           </button>
           <span className="font-display font-bold text-gray-900">Admin Panel</span>
           <a

@@ -22,6 +22,7 @@ import AdminFormSubmissions from './admin/AdminFormSubmissions';
 import AdminSettings from './admin/AdminSettings';
 import AdminPages from './admin/AdminPages';
 import AdminInvites from './admin/AdminInvites';
+import AdminNotifications from './admin/AdminNotifications';
 import PageEditor from './admin/PageEditor';
 import PageRenderer from './components/PageRenderer';
 
@@ -88,6 +89,7 @@ export default function App() {
         <Route path="/admin/pages/:id/edit" element={<PageEditor />} />
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
+          <Route path="notifications" element={<AdminNotifications />} />
           <Route path="pages" element={<AdminPages />} />
           <Route path="content" element={<AdminContent />} />
           <Route path="portfolio" element={<AdminPortfolio />} />
