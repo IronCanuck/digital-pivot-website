@@ -1,4 +1,4 @@
-import { Check, ShieldCheck, Sparkles } from 'lucide-react';
+import { Check, ShieldCheck, Sparkles, Code2 } from 'lucide-react';
 
 const features = [
   'Custom-designed, professional website',
@@ -24,6 +24,18 @@ const premiumFeatures = [
   'Priority hosting & ongoing platform updates',
 ];
 
+const personalSoftwareFeatures = [
+  'Built around your exact workflow:',
+  'Custom-built personal software or tool',
+  'Tailored dashboards & automations',
+  'Secure login & private data storage',
+  'Connects to the apps & APIs you use',
+  'Web, mobile-friendly & cross-device',
+  'Admin controls & usage analytics',
+  'Hands-on onboarding & training',
+  'Priority hosting & ongoing improvements',
+];
+
 function applyForPlan(plan: string) {
   window.dispatchEvent(new CustomEvent('waitlist:select-plan', { detail: { plan } }));
   const target = document.getElementById('contact');
@@ -47,11 +59,11 @@ export default function PricingSection() {
             Simple, Honest Pricing
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-base">
-            Three options to get your business online. Same craftsmanship, different scope and payment structure. Spots are limited — apply to the waitlist below.
+            Four ways to get your business — or your idea — online. Same craftsmanship, different scope and payment structure. Spots are limited — apply to the waitlist below.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 items-start">
 
           {/* Card 1 — Monthly */}
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
@@ -205,6 +217,69 @@ export default function PricingSection() {
                 <ShieldCheck className="w-8 h-8 text-pink-300 shrink-0" />
                 <p className="text-xs text-gray-400">
                   Includes hosting, ongoing updates and admin training.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4 — Personal Software */}
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+            {/* Gradient border wrapper */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600 p-px rounded-3xl">
+              <div className="h-full w-full bg-gray-950 rounded-3xl" />
+            </div>
+            <div className="relative p-8 sm:p-10 text-white">
+              <div className="absolute top-6 right-6">
+                <span className="bg-gradient-to-r from-cyan-400 to-indigo-500 text-white text-xs font-bold px-3 py-1.5 rounded-full inline-flex items-center gap-1">
+                  <Code2 className="w-3 h-3" />
+                  Premium
+                </span>
+              </div>
+
+              <h3 className="font-display text-2xl font-bold mb-1">Personal Software</h3>
+              <p className="text-gray-400 text-sm mb-6">Custom software built just for you — end-to-end.</p>
+
+              <div className="flex items-end gap-2 mb-1">
+                <span className="text-sm font-semibold text-gray-400 mb-2">CAD</span>
+                <span className="font-display text-5xl font-bold text-white">$19,000</span>
+              </div>
+              <p className="text-sm text-gray-400 mb-1">
+                or <span className="font-semibold text-white">$700/month</span> for 36 months
+              </p>
+              <p className="text-xs text-gray-500 mb-6">
+                + GST. One-time $19,000 CAD or financed $25,200 over 3 years.
+              </p>
+
+              <p className="text-xs font-semibold text-cyan-200 bg-white/5 border border-white/10 rounded-lg px-3 py-2 mb-6">
+                Live in 2 months · Only 1 spot per month · No free trials
+              </p>
+
+              <button
+                onClick={() =>
+                  applyForPlan('Personal Software — $19,000 CAD or $700/month × 36')
+                }
+                className="block w-full text-center py-4 rounded-xl bg-gradient-to-r from-cyan-400 to-indigo-500 text-white font-bold text-base hover:opacity-90 transition-opacity shadow-lg mb-8"
+              >
+                Apply to the Waitlist
+              </button>
+
+              <ul className="space-y-3">
+                {personalSoftwareFeatures.map((f, i) => (
+                  <li key={f} className={`flex items-start gap-3 text-sm ${i === 0 ? 'text-gray-300 italic' : 'text-gray-200'}`}>
+                    {i === 0 ? (
+                      <Code2 className="w-4 h-4 text-cyan-300 mt-0.5 shrink-0" />
+                    ) : (
+                      <Check className="w-4 h-4 text-cyan-300 mt-0.5 shrink-0" />
+                    )}
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-3">
+                <ShieldCheck className="w-8 h-8 text-cyan-300 shrink-0" />
+                <p className="text-xs text-gray-400">
+                  Includes hosting, ongoing updates and hands-on training.
                 </p>
               </div>
             </div>
