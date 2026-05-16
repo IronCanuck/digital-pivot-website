@@ -63,7 +63,7 @@ export default function PricingSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
 
           {/* Card 1 — Monthly */}
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
@@ -222,7 +222,24 @@ export default function PricingSection() {
             </div>
           </div>
 
-          {/* Card 4 — Personal Software */}
+        </div>
+
+        {/* Personal Software — separate tier below website & community plans */}
+        <div className="mt-14 pt-14 border-t border-gray-200">
+          <div className="text-center mb-8">
+            <p className="text-xs font-semibold tracking-wide uppercase text-cyan-600 mb-2">
+              Premium build
+            </p>
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-gray-900">
+              Personal Software
+            </h3>
+            <p className="text-gray-500 max-w-xl mx-auto mt-2 text-sm">
+              Custom software built around your workflow — not a website, a tool that works the way you do.
+            </p>
+          </div>
+
+          <div className="max-w-2xl mx-auto">
+          {/* Personal Software card */}
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             {/* Gradient border wrapper */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600 p-px rounded-3xl">
@@ -236,7 +253,6 @@ export default function PricingSection() {
                 </span>
               </div>
 
-              <h3 className="font-display text-2xl font-bold mb-1">Personal Software</h3>
               <p className="text-gray-400 text-sm mb-6">Custom software built just for you — end-to-end.</p>
 
               <div className="flex items-end gap-2 mb-1">
@@ -284,7 +300,7 @@ export default function PricingSection() {
               </div>
             </div>
           </div>
-
+          </div>
         </div>
 
         {/* Global small print */}
